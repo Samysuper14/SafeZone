@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Obtener Ubicación</title>
+  <script src="../static/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <h1>Obtener Ubicación</h1>
+  <div id="location"></div>
+
+  <h1>Promedio de columnas CSV</h1>
+  <table id="tabla-promedios">
+    
+    <!--//jinja-->
+
+  
+  <tr>
+    {% for i in range( municipios | length ) %}
+    <td>{{ municipios[i] }}</td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    {% for i in range( municipios | length ) %}
+    <td>{{ promedios[i] }}</td>
+    {% endfor %}
+  </tr>
+  
+  </table>
+
+  <!--<h1>{{dogo}}</h1>-->
+
+</body>
+
+</html>
