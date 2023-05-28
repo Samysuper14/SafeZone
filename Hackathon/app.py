@@ -3,14 +3,14 @@ import pandas as pd
 import json
 
 app = Flask(__name__)
-#p
+
 
 csv_file = 'static/files/Criminalidad_NL.csv'
 df = pd.read_csv(csv_file)
 columns = df.keys().to_list()[1:]
 promedios = []
 for column in columns:
-    promedios.append(round(df[column].mean(), 2))
+    promedios.append(int(((df[column].mean())/2)*100))
 
 #perrito = 'peperoni'
 
@@ -24,16 +24,17 @@ def promedio():
     columns = df.keys().to_list()[1:]
     promedios = []
     for column in columns:
-        promedios.append(df[column].mean())
+        promedios.append(((df[column].mean())/2)*100)
     
     return jsonify({'promedios': promedios})
 
-@app.route('/api/coords/<float:latitude>,<float:longitude>',  methods = ['POST'])
+
+@app.route('/api/coords/<latitude>/<longitude>',  methods = ['GET'])
 def coords(latitude, longitude):
     
     print(latitude, longitude)
 
-    return jsonify({'coords': [latitude, longitude]})
+    return jsonify({'coords': [float(latitude), float(longitude)]})
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,19 +2,121 @@
 <html>
 
 <head>
-  <title>Obtener Ubicación</title>
-  <script src="../static/js/script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplicación de Visualización de Zonas de Delincuencia</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
 </head>
 
 <body>
-  <h1>Obtener Ubicación</h1>
-  <div id="location"></div>
 
+  <header>
+    <nav>
+      <div class="logo">
+        <div class="logo">
+          <img src="../static/img/Fotos/SafeZone2.png" alt="Logo de la empresa">
+        </div>
+        <div class="menu-icon" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <label for="menu-toggle" class="close-icon"><i class="fas fa-times"></i></label>
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="quienes_somos.html">Quiénes Somos</a></li>
+          <li><a href="herramientas.html">Herramientas</a></li>
+          <li><a href="FAQ.html">Preguntas Frecuentes</a></li>
+          <li><a href="descarga_app.html">Descarga la app</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="logo-container">
+      <img src="../static/img/Fotos/escudo_nl.png">
+    </div>
+    <div class="hero-content">
+      <h1><u>SafeZone</u> </h1>
+      <h1>Tu aplicación de visualización de zonas de delincuencia</h1>
+      <p>Descubre las zonas de delincuencia en Monterrey, Nuevo León y más.</p>
+      <a href="#descarga_app" class="cta-button">Descarga la app</a>
+    </div>
+  </section>
+
+  <section id="quienes_somos" class="content">
+    <h2>¡Échale un vistazo al prototipo de nuestra aplicación!</h2>
+    <iframe
+      src="https://kepler.gl/#/demo?mapUrl=https://raw.githubusercontent.com/Samysuper14/SafeZone/main/Hackathon/static/files/kepler.gl.json"
+      style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px"
+      marginwidth="0px" height="500px" width="1200px" allowfullscreen></iframe>
+  </section>
+
+  <section id="herramientas" class="section">
+    <h2>En SafeZone, tu seguridad va primero</h2>
+    <p class="texto-secciones"> Nuestra prioridad es protegerte. Nuestra herramienta principal te permitirá visualizar
+      las zonas de delincuencia por la zona donde vives</p>
+  </section>
+
+  <section id="descarga_app" class="section">
+    <h2>Funcionalidades destacadas</h2>
+    <p>Descubre las potentes funcionalidades de esta herramienta. Obtén una visión clara y precisa de las áreas afectadas para tomar decisiones informadas y garantizar tu seguridad y de muchas otras. </p>
+  </section>
+
+  <section class="section">
+    <h2>Usarla nunca había sido tan sencillo</h2>
+    <p>Nuestra herramienta cuenta con una interfaz intuitiva y amigable que facilita su uso.</p>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Configurar animaciones para las secciones
+      const sections = document.querySelectorAll('.section');
+
+      sections.forEach((section) => {
+        const waypoint = new Waypoint({
+          element: section,
+          handler: function () {
+            section.classList.add('visible');
+          },
+          offset: '80%'
+        });
+      });
+
+      // Configurar animación para la sección de hero
+      const heroSection = document.querySelector('.hero');
+
+      const heroWaypoint = new Waypoint({
+        element: heroSection,
+        handler: function () {
+          heroSection.classList.add('visible');
+        },
+        offset: '80%'
+      });
+
+      const quienesSomosSection = document.querySelector('#quienes_somos');
+      const quienesSomosWaypoint = new Waypoint({
+        element: quienesSomosSection,
+        handler: function () {
+          quienesSomosSection.classList.add('visible');
+        },
+        offset: '80%'
+      });
+    });
+  </script>
+
+  <!-- <h1>Obtener Ubicación</h1>
+  <div id="location"></div> -->
+
+  <!-- <iframe src="https://kepler.gl/#/demo?mapUrl=https://raw.githubusercontent.com/Samysuper14/SafeZone/main/Hackathon/static/files/kepler.gl.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="500px" width="1200px" allowfullscreen></iframe> -->
+
+
+  <!--
   <h1>Promedio de columnas CSV</h1>
   <table id="tabla-promedios">
     
-    <!--//jinja-->
+    //jinja
 
   
   <tr>
@@ -31,7 +133,28 @@
   
   </table>
 
-  <!--<h1>{{dogo}}</h1>-->
+  <h1>{{dogo}}</h1>
+-->
+  <!-- <div id="googleMap" style="width:100%;height:400px;"></div>
+
+  <script>
+    function myMap() {
+    var mapProp= {
+      center:new google.maps.LatLng(51.508742,-0.120850),
+      zoom:5,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>-->
+
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+  <script src="../static/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
 
 </body>
 
