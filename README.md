@@ -7,3 +7,4 @@ asi poder brindar un mapa en el que se combinen los datos
 
 ![image](https://github.com/Samysuper14/SafeZone/assets/35778636/e1dfebc9-1f09-4f31-808d-a77cf274ecd5)
 
+![image](https://github.com/Samysuper14/SafeZone/assets/35778636/24610f82-2761-4aa5-8914-4c3f71106046)
